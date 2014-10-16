@@ -4,8 +4,5 @@ gemspec
 
 group :development do
   gem "guard"
-end
-
-group :test do
-  gem "rspec"
+  gem "rblineprof", :git => "https://github.com/fumihiroito/rblineprof.git", :branch => "begin-end"
 end

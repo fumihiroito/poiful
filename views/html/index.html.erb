@@ -1,0 +1,19 @@
+<html>
+<body>
+<table border=1>
+  <tr>
+    <td>File</td>
+    <td>Total wall time(ms)</td>
+    <td>Total cpu time(ms)</td>
+  </tr>
+  <% results.sort {|a, b| b.total_wall_time <=> a.total_wall_time}.each do |result| %>
+  <tr>
+    <td><a href="<%= result.file_path.gsub(/\//, "_") %>.html"><%= File.basename(result.file_path) %></a></td>
+    <td><%= "%.1fms" % result.total_wall_time %></td>
+    <td><%= "%.1fms" % result.total_cpu_time %></td>
+  </tr>
+  <% end%>
+</table>
+created at <%= Time.now %>
+</body>
+</html>
