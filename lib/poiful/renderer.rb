@@ -28,6 +28,8 @@ module Poiful
       File.open("#{directory}/index.html", "w") do |f|
         f.write(buf)
       end
+
+      FileUtils.cp_r("#{File.dirname(__FILE__)}/../../assets", "#{directory}/")
     end
   end
 end

@@ -1,0 +1,40 @@
+.calls {
+    background: #F0F0F0;
+    text-align: right;
+    border-right: 1px solid;
+    padding-right: 5px;
+}
+.times {
+    background: #F0F0F0;
+    text-align: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-right: 1px solid;
+}
+.code {
+    background: #F0F0F0;
+}
+.linenumber {
+    text-align: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #F0F0F0;
+}
+table.file {
+    border: 0px;
+    border-spacing: 0px;
+}
+tr {
+    border: 0px;
+}
+td {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+pre {
+    margin: 1px;
+}
+.hljs {
+    padding: 0px;
+}

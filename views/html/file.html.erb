@@ -1,20 +1,30 @@
 <html>
+<meta>
+  <script src="assets/javascripts/highlight.pack.js"></script>
+  <link rel="stylesheet" href="assets/stylesheets/default.css">
+  <link rel="stylesheet" href="assets/stylesheets/file.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+</meta>
 <body>
-<table border=1>
+<pre>
+<table class="file">
   <tr>
-    <td>calls</td>
-    <td>time</td>
-    <td></td>
+    <td class="calls"><pre>calls</pre></td>
+    <td class="times"><pre>time</pre></td>
+    <td class="linenumber"></td>
+    <td class="code"></td>
   </tr>
-  <% @lines.each do |line| %>
+  <% @lines.each_with_index do |line, idx| %>
     <tr>
-      <td><%= line.calls %></td>
-      <td><%= "%.1fms" % line.total_wall_time %></td>
-      <td><%= line.code %></td>
+      <td class="calls"><pre><code><%= line.calls %></code></pre></td>
+      <td class="times"><pre><code><%= "%.1fms" % line.total_wall_time %></code></pre></td>
+      <td class="linenumber"><pre><code><%= idx+1 %></code></pre></td>
+      <td class="code"><pre><code class="ruby"><%= line.code.chomp %></code></pre></td>
     </tr>
   <% end %>
   </tr>
 </table>
+</pre>
 created at <%= Time.now %>
 </body>
 </html>
