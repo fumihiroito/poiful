@@ -17,6 +17,7 @@ module Poiful
         return nil
       end
       file_result.file_obj.each_line.with_index do |code, idx|
+        next if result[idx] == nil
         file_result.rows << RowResult.new(file_path, idx+1, result[idx], code)
       end
       file_result.file_obj.close
