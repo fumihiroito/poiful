@@ -6,8 +6,17 @@ module Poiful
     @@profile_result = nil
 
     def start(&block)
+      start_html(&block)
+    end
+
+    def start_text(&block)
       profile = lineprof(/./, &block)
       print Renderer.text(profile)
+    end
+
+    def start_html(dir="prof", &block)
+      profile = lineprof(/./, &block)
+      Renderer.html(profile, dir)
     end
   end
 end
@@ -26,8 +35,11 @@ if class_exist
         RbLineProf.begin(/./)
       end
 
-      def end
+      def end(render=true)
         @@profile_result = RbLineProf.end
+        if render
+          render_html
+        end
         @@profile_result
       end
 
@@ -35,9 +47,15 @@ if class_exist
         print Renderer.text(@@profile_result)
       end
 
-      def render_html
-        Renderer.html(@@profile_result, "prof")
+      def render_html(dir="prof")
+        Renderer.html(@@profile_result, dir)
       end
     end
   end
+end
+
+begin
+  klass = Module.const_get("LineProf")
+rescue
+  LineProf = Poiful
 end
